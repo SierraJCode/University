@@ -1,3 +1,8 @@
+
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+
 public class FormListContact extends javax.swing.JFrame {
 
     /**
@@ -17,17 +22,18 @@ public class FormListContact extends javax.swing.JFrame {
     private void initComponents() {
 
         bg = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        lblNumber = new javax.swing.JLabel();
+        txtNumber = new javax.swing.JTextField();
+        txtName = new javax.swing.JTextField();
+        lblListContact = new javax.swing.JLabel();
+        lblName = new javax.swing.JLabel();
+        btnExit = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
+        btnRead = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnCreate = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
+        lblCopyright = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(380, 600));
@@ -36,99 +42,204 @@ public class FormListContact extends javax.swing.JFrame {
         bg.setBackground(new java.awt.Color(255, 255, 255));
         bg.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Product Sans", 0, 18)); // NOI18N
-        jLabel1.setText("Number");
-        bg.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 100, 30));
+        lblNumber.setFont(new java.awt.Font("Product Sans", 0, 18)); // NOI18N
+        lblNumber.setText("Number");
+        bg.add(lblNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 100, 30));
 
-        jTextField1.setBackground(new java.awt.Color(247, 248, 249));
-        jTextField1.setFont(new java.awt.Font("Product Sans", 0, 18)); // NOI18N
-        jTextField1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(186, 189, 193), 2, true));
-        bg.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, 40));
+        txtNumber.setBackground(new java.awt.Color(247, 248, 249));
+        txtNumber.setFont(new java.awt.Font("Product Sans", 0, 18)); // NOI18N
+        txtNumber.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(186, 189, 193), 2, true));
+        bg.add(txtNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 290, 40));
 
-        jTextField2.setBackground(new java.awt.Color(247, 248, 249));
-        jTextField2.setFont(new java.awt.Font("Product Sans", 0, 18)); // NOI18N
-        jTextField2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(186, 189, 193), 2, true));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        txtName.setBackground(new java.awt.Color(247, 248, 249));
+        txtName.setFont(new java.awt.Font("Product Sans", 0, 18)); // NOI18N
+        txtName.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(186, 189, 193), 2, true));
+        txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                txtNameActionPerformed(evt);
             }
         });
-        bg.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 290, 40));
+        bg.add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 290, 40));
 
-        jLabel2.setFont(new java.awt.Font("Product Sans", 1, 45)); // NOI18N
-        jLabel2.setText("List Contact");
-        bg.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 260, 50));
+        lblListContact.setFont(new java.awt.Font("Product Sans", 1, 45)); // NOI18N
+        lblListContact.setText("List Contact");
+        bg.add(lblListContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 260, 50));
 
-        jLabel3.setFont(new java.awt.Font("Product Sans", 0, 18)); // NOI18N
-        jLabel3.setText("Name");
-        bg.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 70, 30));
+        lblName.setFont(new java.awt.Font("Product Sans", 0, 18)); // NOI18N
+        lblName.setText("Name");
+        bg.add(lblName, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, 70, 30));
 
-        jButton1.setBackground(new java.awt.Color(255, 102, 102));
-        jButton1.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Exit");
-        bg.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 420, 85, 25));
+        btnExit.setBackground(new java.awt.Color(255, 51, 51));
+        btnExit.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(255, 255, 255));
+        btnExit.setText("Exit");
+        bg.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 85, 25));
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
-        jButton3.setText("Delete");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
+        btnDelete.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
-        bg.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 350, 85, 25));
+        bg.add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 350, 85, 25));
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
-        jButton4.setText("Read");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnRead.setBackground(new java.awt.Color(255, 255, 255));
+        btnRead.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
+        btnRead.setText("Read");
+        btnRead.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnReadActionPerformed(evt);
             }
         });
-        bg.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 350, 75, 25));
+        bg.add(btnRead, new org.netbeans.lib.awtextra.AbsoluteConstraints(105, 350, 75, 25));
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 255));
-        jButton5.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
-        jButton5.setText("Update");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdate.setBackground(new java.awt.Color(255, 255, 255));
+        btnUpdate.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btnUpdateActionPerformed(evt);
             }
         });
-        bg.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 85, 25));
+        bg.add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 85, 25));
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
-        jButton2.setText("Create");
-        bg.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 85, 25));
+        btnCreate.setBackground(new java.awt.Color(255, 255, 255));
+        btnCreate.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
+        btnCreate.setText("Create");
+        btnCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreateActionPerformed(evt);
+            }
+        });
+        bg.add(btnCreate, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 85, 25));
 
-        jButton6.setBackground(new java.awt.Color(204, 255, 255));
-        jButton6.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
-        jButton6.setText("Clear");
-        bg.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 85, 25));
+        btnClear.setBackground(new java.awt.Color(204, 255, 255));
+        btnClear.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
+        btnClear.setText("Clear");
+        bg.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 85, 25));
+
+        lblCopyright.setFont(new java.awt.Font("Urbanist", 0, 14)); // NOI18N
+        lblCopyright.setForeground(new java.awt.Color(153, 153, 153));
+        lblCopyright.setText("© 2023 Creado y diseñado por SierraJCode");
+        bg.add(lblCopyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
 
         getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnReadActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btnUpdateActionPerformed
+
+    private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
+        try {
+
+			// Get the name of the contact to be updated
+			// from the Command line argument
+			String newName = txtName.getText();
+
+			// Get the number to be updated
+			// from the Command line argument
+			long newNumber = Integer.parseInt(txtNumber.getText());
+
+			String nameNumberString;
+			String name;
+			long number;
+			int index;
+
+			// Using file pointer creating the file.
+			File file = new File("friendsContact.txt");
+
+			if (!file.exists()) {
+
+				// Create a new file if not exists.
+				file.createNewFile();
+			}
+
+			// Opening file in reading and write mode.
+
+			RandomAccessFile raf = new RandomAccessFile(file, "rw");
+			boolean found = false;
+
+			// Checking whether the name
+			// of contact already exists.
+			// getFilePointer() give the current offset
+			// value from start of the file.
+			while (raf.getFilePointer() < raf.length()) {
+
+				// reading line from the file.
+				nameNumberString = raf.readLine();
+
+				// splitting the string to get name and
+				// number
+				String[] lineSplit = nameNumberString.split("!");
+
+				// separating name and number.
+				name = lineSplit[0];
+				number = Long.parseLong(lineSplit[1]);
+
+				// if condition to find existence of record.
+				if (name == newName || number == newNumber) {
+					found = true;
+					break;
+				}
+			}
+
+			if (found == false) {
+
+				// Enter the if block when a record
+				// is not already present in the file.
+				nameNumberString = newName + "!" + String.valueOf(newNumber);
+
+				// writeBytes function to write a string
+				// as a sequence of bytes.
+				raf.writeBytes(nameNumberString);
+
+				// To insert the next record in new line.
+				raf.writeBytes(System.lineSeparator());
+
+				// Print the message
+				System.out.println(" Friend added. ");
+
+				// Closing the resources.
+				raf.close();
+			}
+			// The contact to be updated
+			// could not be found
+			else {
+
+				// Closing the resources.
+				raf.close();
+
+				// Print the message
+				System.out.println(" Input name does not exists. ");
+			}
+		}
+
+		catch (IOException ioe) {
+
+			System.out.println(ioe);
+		}
+		catch (NumberFormatException nef) {
+
+			System.out.println(nef);
+		}
+    }//GEN-LAST:event_btnCreateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,16 +278,17 @@ public class FormListContact extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel bg;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnCreate;
+    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnRead;
+    private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel lblCopyright;
+    private javax.swing.JLabel lblListContact;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblNumber;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtNumber;
     // End of variables declaration//GEN-END:variables
 }
