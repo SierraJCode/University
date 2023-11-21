@@ -133,9 +133,9 @@ public class FormListContact extends javax.swing.JFrame {
         lblCopyright.setFont(new java.awt.Font("Urbanist", 0, 14)); // NOI18N
         lblCopyright.setForeground(new java.awt.Color(153, 153, 153));
         lblCopyright.setText("© 2023 Creado y diseñado por SierraJCode");
-        bg.add(lblCopyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
+        bg.add(lblCopyright, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 510, -1, -1));
 
-        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 600));
+        getContentPane().add(bg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 380, 560));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -258,6 +258,8 @@ public class FormListContact extends javax.swing.JFrame {
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         txtName.setText("");
         txtNumber.setText("");
+        
+        txtName.requestFocus();
     }//GEN-LAST:event_btnClearActionPerformed
 
     /**
