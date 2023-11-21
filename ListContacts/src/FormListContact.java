@@ -206,6 +206,9 @@ public class FormListContact extends javax.swing.JFrame {
 				// if condition to find existence of record.
 				if (name == newName || number == newNumber) {
 					found = true;
+                                        CuadroDeDialogo CDD = new CuadroDeDialogo("The record exist.");
+                                        CDD.setVisible(true);
+                                        System.out.println(" The record exist. ");
 					break;
 				}
 			}
@@ -224,6 +227,8 @@ public class FormListContact extends javax.swing.JFrame {
 				raf.writeBytes(System.lineSeparator());
 
 				// Print the message
+                                CuadroDeDialogo CDD = new CuadroDeDialogo("Friend added.");
+                                CDD.setVisible(true);
 				System.out.println(" Friend added. ");
 
 				// Closing the resources.
@@ -237,7 +242,7 @@ public class FormListContact extends javax.swing.JFrame {
 				raf.close();
 
 				// Print the message
-				System.out.println(" Input name does not exists. ");
+				
 			}
 		}
 
