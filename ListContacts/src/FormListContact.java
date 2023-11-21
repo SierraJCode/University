@@ -73,6 +73,11 @@ public class FormListContact extends javax.swing.JFrame {
         btnExit.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 255, 255));
         btnExit.setText("Exit");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
         bg.add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 85, 25));
 
         btnDelete.setBackground(new java.awt.Color(255, 255, 255));
@@ -118,6 +123,11 @@ public class FormListContact extends javax.swing.JFrame {
         btnClear.setBackground(new java.awt.Color(204, 255, 255));
         btnClear.setFont(new java.awt.Font("Urbanist Medium", 0, 14)); // NOI18N
         btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
         bg.add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 85, 25));
 
         lblCopyright.setFont(new java.awt.Font("Urbanist", 0, 14)); // NOI18N
@@ -240,6 +250,15 @@ public class FormListContact extends javax.swing.JFrame {
 			System.out.println(nef);
 		}
     }//GEN-LAST:event_btnCreateActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        txtName.setText("");
+        txtNumber.setText("");
+    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments
