@@ -18,7 +18,7 @@ public class FormListContact extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+   private void initComponents() {
 
         bg = new javax.swing.JPanel();
         lblNumber = new javax.swing.JLabel();
@@ -33,7 +33,8 @@ public class FormListContact extends javax.swing.JFrame {
         btnCreate = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         lblCopyright = new javax.swing.JLabel();
-
+   }
+/* 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(380, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,6 +140,7 @@ public class FormListContact extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+*/
     private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
@@ -205,9 +207,7 @@ public class FormListContact extends javax.swing.JFrame {
 				// if condition to find existence of record.
 				if (name == newName || number == newNumber) {
 					found = true;
-                                        CuadroDeDialogo CDD = new CuadroDeDialogo("The record exist.");
-                                        CDD.setVisible(true);
-                                        System.out.println(" The record exist. ");
+                        System.out.println(" The record exist. ");
 					break;
 				}
 			}
@@ -226,8 +226,6 @@ public class FormListContact extends javax.swing.JFrame {
 				raf.writeBytes(System.lineSeparator());
 
 				// Print the message
-                                CuadroDeDialogo CDD = new CuadroDeDialogo("Friend added.");
-                                CDD.setVisible(true);
 				System.out.println(" Friend added. ");
 
 				// Closing the resources.
