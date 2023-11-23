@@ -261,13 +261,11 @@ public class FormListContact extends javax.swing.JFrame {
 				number = Long.parseLong(lineSplit[1]);
 
 				// if condition to find existence of record.
-				if (name == newName || number == newNumber) {
+				if (name.equals(newName) || number == newNumber) {
 					found = true;
                                         
                                         JOptionPane.showMessageDialog(null, "The record exist.");
-                                        
-                                        System.out.println(" The record exist. ");
-					break;
+                                        break;
 				}
 			}
 
@@ -285,7 +283,6 @@ public class FormListContact extends javax.swing.JFrame {
 				raf.writeBytes(System.lineSeparator());
 				// Print the message
                                 JOptionPane.showMessageDialog(null, "The Friend " + newName + " was added. ");
-				System.out.println(" Friend added. ");
 
 				// Closing the resources.
 				raf.close();
@@ -303,11 +300,11 @@ public class FormListContact extends javax.swing.JFrame {
 		}
 
 		catch (IOException ioe) {
-
+                        JOptionPane.showMessageDialog(null, "Nombre Incorrecto");
 			System.out.println(ioe);
 		}
 		catch (NumberFormatException nef) {
-
+                        JOptionPane.showMessageDialog(null, "Incorrect number");
 			System.out.println(nef);
 		}
     }                                         
