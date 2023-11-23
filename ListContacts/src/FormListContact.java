@@ -181,7 +181,8 @@ public class FormListContact extends javax.swing.JFrame {
  
                 // splitting the string to get name and
                 // number
-                String[] lineSplit = nameNumberString.split("!");
+                String[] lineSplit
+                    = nameNumberString.split("!");
  
                 // separating name and number.
                 name = lineSplit[0];
@@ -306,11 +307,10 @@ public class FormListContact extends javax.swing.JFrame {
 
 			RandomAccessFile raf = new RandomAccessFile(file, "rw");
 			boolean found = false;
-                        
+
 			// Traversing the file
 			// getFilePointer() give the current offset
 			// value from start of the file.
-                        
 			while (raf.getFilePointer() < raf.length()) {
 
 				// reading line from the file.
@@ -325,14 +325,13 @@ public class FormListContact extends javax.swing.JFrame {
 				number = Long.parseLong(lineSplit[1]);
                                 
                                 if(nameText.equals(name)){
-                                    found = true;
+                                    // Print the contact data
                                     JOptionPane.showMessageDialog(null, "Friend Name: " + name + "\n" + "Contact Number: " + number + "\n");
-                                    break;
+                                    System.out.println("Friend Name: " + name + "\n" + "Contact Number: " + number + "\n");
                                 }
-                        }
-                        if (!found){
-                            JOptionPane.showMessageDialog(null, "Friend not found");
-                        }
+				
+                                
+			}
                         }
 
 			catch (IOException ioe)
@@ -394,7 +393,7 @@ public class FormListContact extends javax.swing.JFrame {
 				number = Long.parseLong(lineSplit[1]);
 
 				// if condition to find existence of record.
-				if (name.equals(newName)) {
+				if (name.equals(newName) || number == newNumber) {
 					found = true;
 					break;
                                         
@@ -565,6 +564,8 @@ public class FormListContact extends javax.swing.JFrame {
 				raf.writeBytes(System.lineSeparator());
 				// Print the message
                                 JOptionPane.showMessageDialog(null, "The Friend " + newName + " was added. ");
+                                txtName.setText("");
+                                txtNumber.setText("");
 
 				// Closing the resources.
 				raf.close();
