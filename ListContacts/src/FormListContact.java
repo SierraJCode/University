@@ -11,6 +11,7 @@ public class FormListContact extends javax.swing.JFrame {
      */
     public FormListContact() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -37,6 +38,7 @@ public class FormListContact extends javax.swing.JFrame {
         lblCopyright = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
         setSize(new java.awt.Dimension(380, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
