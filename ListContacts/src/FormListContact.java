@@ -2,6 +2,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 public class FormListContact extends javax.swing.JFrame {
@@ -12,6 +13,7 @@ public class FormListContact extends javax.swing.JFrame {
     public FormListContact() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setIconImage(new ImageIcon(getClass().getResource("images/icon.png")).getImage());
     }
 
     /**
